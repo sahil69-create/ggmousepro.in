@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - GG Mouse Pro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">GG Mouse Pro<span>.</span></a>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#features">Features</a></li>
+                    <li><a href="store.html">Store</a></li>
+                    <li><a href="index.html#support">Support</a></li>
+                    <li><a href="cart.html" class="cart-link"><i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span></a></li>
+                    <li class="auth-item"><a href="login.html" class="btn-sm">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Signup Section -->
+    <section class="hero" style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding-top: 80px;">
+        <canvas id="bg-canvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; opacity: 0.3;"></canvas>
+        
+        <div class="auth-container" style="z-index: 2; width: 100%; max-width: 400px;">
+            <h2 class="text-center" style="margin-bottom: 20px;">Create Account</h2>
+            <form id="signup-form">
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label for="name" style="display: block; margin-bottom: 5px; color: var(--text-secondary);">Full Name</label>
+                    <input type="text" id="name" required style="width: 100%; padding: 10px; background: rgba(0,0,0,0.5); border: 1px solid var(--accent-blue); color: #fff; border-radius: 4px;">
+                </div>
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label for="email" style="display: block; margin-bottom: 5px; color: var(--text-secondary);">Email</label>
+                    <input type="email" id="email" required style="width: 100%; padding: 10px; background: rgba(0,0,0,0.5); border: 1px solid var(--accent-blue); color: #fff; border-radius: 4px;">
+                </div>
+                <div class="form-group" style="margin-bottom: 25px;">
+                    <label for="password" style="display: block; margin-bottom: 5px; color: var(--text-secondary);">Password</label>
+                    <input type="password" id="password" required style="width: 100%; padding: 10px; background: rgba(0,0,0,0.5); border: 1px solid var(--accent-blue); color: #fff; border-radius: 4px;">
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Sign Up</button>
+            </form>
+            <p class="text-center" style="margin-top: 15px; font-size: 0.9rem;">
+                Already have an account? <a href="login.html" style="color: var(--accent-green);">Login</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="text-center">
+                <p>&copy; 2024 GG Mouse Pro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="ecommerce.js"></script>
+</body>
+</html>
