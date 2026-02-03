@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart - GG Mouse Pro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">GG Mouse Pro<span>.</span></a>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#features">Features</a></li>
+                    <li><a href="store.html">Store</a></li>
+                    <li><a href="index.html#support">Support</a></li>
+                    <li><a href="cart.html" class="cart-link active"><i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span></a></li>
+                    <li class="auth-item"><a href="login.html" class="btn-sm">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Cart Section -->
+    <section class="hero" style="min-height: 80vh; padding-top: 120px;">
+        <canvas id="bg-canvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; opacity: 0.2;"></canvas>
+        
+        <div class="container" style="position: relative; z-index: 2;">
+            <h1 class="text-gradient" style="margin-bottom: 30px;">Your Cart</h1>
+            
+            <div id="cart-content">
+                <!-- Cart Items Table -->
+                <table class="cart-table">
+                    <thead>
+                        <tr>
+                            <th style="text-align: left; padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.1);">Product</th>
+                            <th style="padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.1);">Price</th>
+                            <th style="padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.1);">Quantity</th>
+                            <th style="padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.1);">Total</th>
+                            <th style="padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.1);">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cart-items">
+                        <!-- Items will be injected here by JS -->
+                    </tbody>
+                </table>
+
+                <div class="cart-summary" style="background: var(--bg-card); padding: 20px; border-radius: 8px; max-width: 300px; margin-left: auto;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span>Subtotal:</span>
+                        <span id="cart-subtotal">$0.00</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 20px; font-weight: bold; font-size: 1.2rem; color: var(--accent-green);">
+                        <span>Total:</span>
+                        <span id="cart-total">$0.00</span>
+                    </div>
+                    <button id="checkout-btn" class="btn btn-primary" style="width: 100%;">Proceed to Checkout</button>
+                </div>
+            </div>
+
+            <!-- Empty Cart Message -->
+            <div id="empty-cart" style="display: none; text-align: center; padding: 50px;">
+                <i class="fas fa-shopping-cart" style="font-size: 4rem; color: var(--text-secondary); margin-bottom: 20px;"></i>
+                <h3>Your cart is empty</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 20px;">Looks like you haven't added any gaming gear yet.</p>
+                <a href="store.html" class="btn btn-primary">Go to Store</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="text-center">
+                <p>&copy; 2024 GG Mouse Pro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="ecommerce.js"></script>
+</body>
+</html>
