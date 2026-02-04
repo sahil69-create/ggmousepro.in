@@ -130,9 +130,64 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Add animation classes to elements
-document.querySelectorAll('.feature-card, .product-card, .section-header').forEach(el => {
+document.querySelectorAll('.feature-card, .product-card, .section-header, .step-card, .screenshot-item, .testimonial-card').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
     el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
     observer.observe(el);
 });
+
+// Navigation Scroll Highlighting
+window.addEventListener('scroll', () => {
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    
+    let current = '';
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+            current = section.getAttribute('id');
+        }
+    });
+    
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').includes(current)) {
+            link.classList.add('active');
+        }
+    });
+});
+
+// Download Loader Function
+function startDownload() {
+    const btn = document.getElementById('download-btn');
+    const btnText = document.getElementById('btn-text');
+    const btnLoader = document.getElementById('btn-loader');
+    const msg = document.getElementById('download-msg');
+    
+    if (btn && btnText && btnLoader && msg) {
+        btnText.style.display = 'none';
+        btnLoader.style.display = 'block';
+        btn.disabled = true;
+        
+        setTimeout(() => {
+            btnLoader.style.display = 'none';
+            btnText.style.display = 'inline';
+            btnText.innerText = "Downloaded!";
+            btn.style.backgroundColor = "#333";
+            msg.style.display = 'block';
+            msg.innerText = "Download started automatically. Check your notifications.";
+            
+            // Create a dummy download link
+            const link = document.createElement('a');
+            link.href = 'https://play.google.com/store/apps/details?id=com.zjx.ztezscreenshot&pcampaignid=web_share'; // In a real app, this would be the APK URL
+            link.download = 'GGMousePro_v2.4.1.apk';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+        }, 2000);
+    }
+}
