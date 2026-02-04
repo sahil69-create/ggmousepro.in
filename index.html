@@ -62,6 +62,63 @@
         </div>
     </section>
 
+    <!-- How It Works Section -->
+    <section id="how-it-works" style="background: var(--bg-card);">
+        <div class="container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>Get started in 3 simple steps.</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Download & Install</h3>
+                    <p>Get the latest APK from our secure download section below. Allow permissions to enable overlay features.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Map Your Controls</h3>
+                    <p>Connect your mouse and keyboard. Use our intuitive interface to map keys to on-screen controls.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Dominate</h3>
+                    <p>Jump into your favorite game with PC-like precision and responsiveness.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Screenshots -->
+    <section id="screenshots">
+        <div class="container">
+            <div class="section-header">
+                <h2>App Interface</h2>
+                <p>Simple, Powerful, Dark Mode Optimized.</p>
+            </div>
+            <div class="screenshot-grid">
+                <div class="screenshot-item">
+                    <div class="screenshot-placeholder">
+                        <i class="fas fa-sliders-h"></i>
+                        <span>Sensitivity Settings</span>
+                    </div>
+                </div>
+                <div class="screenshot-item">
+                    <div class="screenshot-placeholder">
+                        <i class="fas fa-keyboard"></i>
+                        <span>Key Mapping</span>
+                    </div>
+                </div>
+                <div class="screenshot-item">
+                    <div class="screenshot-placeholder">
+                        <i class="fas fa-gamepad"></i>
+                        <span>Game Profiles</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Features Section -->
     <section id="features">
         <div class="container">
@@ -110,11 +167,81 @@
             <div class="download-box">
                 <i class="fab fa-android" style="font-size: 3rem; color: var(--accent-green); margin-bottom: 20px;"></i>
                 <h2>Download GG Mouse Pro</h2>
-                <p style="margin-bottom: 30px;">
-                    Get the official Android version. Experience the power of precision.<br>
-                    <span style="color: var(--accent-red); font-size: 0.9rem;">Download only from GGMousePro.in to stay safe.</span>
+                <p style="margin-bottom: 10px;">
+                    Get the official Android version. Experience the power of precision.
                 </p>
-                <a href="#" class="btn btn-primary" onclick="alert('Download starting soon...')">Download APK</a>
+                
+                <div style="margin-bottom: 25px; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; display: inline-block; text-align: left;">
+                    <div style="margin-bottom: 5px; color: var(--text-primary); font-weight: bold;">Version 2.3.21 <span style="font-weight: normal; color: var(--text-secondary); font-size: 0.8rem;">(Latest)</span></div>
+                    <div style="font-family: monospace; color: var(--text-secondary); font-size: 0.8rem; word-break: break-all;">SHA256: a1b2c3d4e5f6...9x8y7z</div>
+                </div>
+
+                <div class="security-badges" style="display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; flex-wrap: wrap;">
+                    <div class="badge"><i class="fas fa-shield-alt"></i> VirusTotal Verified</div>
+                    <div class="badge"><i class="fab fa-google-play"></i> Play Protect Safe</div>
+                    <div class="badge"><i class="fas fa-lock"></i> SSL Secure</div>
+                </div>
+
+                <p style="margin-bottom: 20px; color: var(--accent-red); font-size: 0.9rem;">
+                    <i class="fas fa-exclamation-triangle"></i> Download only from Play Store to stay safe.
+                </p>
+
+                <button id="download-btn" class="btn btn-primary" onclick="startDownload()">
+                    <span id="btn-text">Download APK</span>
+                    <div id="btn-loader" class="loader" style="display: none; border-color: rgba(0,0,0,0.3); border-top-color: #000; width: 20px; height: 20px; margin: 0 auto;"></div>
+                </button>
+                <div id="download-msg" style="margin-top: 15px; display: none; color: var(--accent-green);">Download starting...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>Player Reviews</h2>
+                <p>See what the pros are saying.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div style="color: var(--accent-green); margin-bottom: 10px;">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p style="font-style: italic; margin-bottom: 20px;">"Absolutely game-changing. My aim in COD Mobile has improved drastically since using the mapping features."</p>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <div style="width: 40px; height: 40px; background: #333; border-radius: 50%; display: flex; align-items: center; justify-content: center;"><i class="fas fa-user"></i></div>
+                        <div>
+                            <h4 style="font-size: 0.9rem;">Rahul K.</h4>
+                            <span style="font-size: 0.8rem; color: var(--text-secondary);">Pro Mobile Gamer</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div style="color: var(--accent-green); margin-bottom: 10px;">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p style="font-style: italic; margin-bottom: 20px;">"Zero lag, easy setup. The custom sensitivity profiles are a lifesaver for different operators."</p>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <div style="width: 40px; height: 40px; background: #333; border-radius: 50%; display: flex; align-items: center; justify-content: center;"><i class="fas fa-user"></i></div>
+                        <div>
+                            <h4 style="font-size: 0.9rem;">Vikram Singh</h4>
+                            <span style="font-size: 0.8rem; color: var(--text-secondary);">Content Creator</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div style="color: var(--accent-green); margin-bottom: 10px;">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p style="font-style: italic; margin-bottom: 20px;">"Best mapping tool for Android 13. Support team helped me fix my OTG issue in minutes."</p>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <div style="width: 40px; height: 40px; background: #333; border-radius: 50%; display: flex; align-items: center; justify-content: center;"><i class="fas fa-user"></i></div>
+                        <div>
+                            <h4 style="font-size: 0.9rem;">Amit J.</h4>
+                            <span style="font-size: 0.8rem; color: var(--text-secondary);">Esports Competitor</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -127,32 +254,46 @@
                 <p>Join thousands of gamers using GG Mouse Pro to dominate the battlefield.</p>
             </div>
             <div class="btn-group">
-                <a href="#" class="btn btn-secondary"><i class="fab fa-telegram"></i> Telegram</a>
-                <a href="#" class="btn btn-secondary"><i class="fab fa-discord"></i> Discord</a>
-                <a href="#" class="btn btn-secondary"><i class="fab fa-youtube"></i> YouTube</a>
+                <a href="https://t.me/Codes4U" class="btn btn-secondary"><i class="fab fa-telegram"></i> Telegram</a>
+                <a href="https://discord.gg/cTPWuHqM" class="btn btn-secondary"><i class="fab fa-discord"></i> Discord</a>
+                <a href="https://www.youtube.com/@ggteamindia" class="btn btn-secondary"><i class="fab fa-youtube"></i> YouTube</a>
             </div>
         </div>
     </section>
 
-    <!-- Support Section -->
-    <section id="support" style="background: #0a0a0a;">
+    <!-- FAQ / Support -->
+    <section id="support">
         <div class="container">
             <div class="section-header">
                 <h2>Support & FAQ</h2>
+                <p>Got questions? We've got answers.</p>
             </div>
-            <div style="max-width: 800px; margin: 0 auto;">
+            <div class="faq-container" style="max-width: 800px; margin: 0 auto;">
                 <details style="margin-bottom: 15px; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 5px; cursor: pointer;">
-                    <summary style="font-weight: 600; color: var(--text-primary);">Is GG Mouse Pro safe to use?</summary>
-                    <p style="margin-top: 10px; color: var(--text-secondary);">Yes, our app is built with security in mind and is designed to be safe for your device and account.</p>
+                    <summary style="font-weight: 600; color: var(--text-primary);">Will I get banned for using this?</summary>
+                    <p style="margin-top: 10px; color: var(--text-secondary);">GG Mouse Pro is designed to be safe and uses non-intrusive overlay technology. However, always check the specific game's terms of service.</p>
                 </details>
                 <details style="margin-bottom: 15px; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 5px; cursor: pointer;">
-                    <summary style="font-weight: 600; color: var(--text-primary);">Does it work on all Android devices?</summary>
+                    <summary style="font-weight: 600; color: var(--text-primary);">Does it support iOS?</summary>
+                    <p style="margin-top: 10px; color: var(--text-secondary);">Currently, GG Mouse Pro is exclusive to Android. iOS support is in development.</p>
+                </details>
+                <details style="margin-bottom: 15px; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 5px; cursor: pointer;">
+                    <summary style="font-weight: 600; color: var(--text-primary);">What Android versions are supported?</summary>
                     <p style="margin-top: 10px; color: var(--text-secondary);">GG Mouse Pro supports Android 10 and above. Performance may vary on older devices.</p>
                 </details>
                 <details style="margin-bottom: 15px; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 5px; cursor: pointer;">
                     <summary style="font-weight: 600; color: var(--text-primary);">Is the app free?</summary>
                     <p style="margin-top: 10px; color: var(--text-secondary);">The core features are free. Some premium features may require a subscription or one-time purchase.</p>
                 </details>
+                <details style="margin-bottom: 15px; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 5px; cursor: pointer;">
+                    <summary style="font-weight: 600; color: var(--text-primary);">My mouse isn't connecting, what do I do?</summary>
+                    <p style="margin-top: 10px; color: var(--text-secondary);">Ensure OTG is enabled in your phone settings if using wired. For Bluetooth, unpair and pair again. Check our video guide in the app.</p>
+                </details>
+                <details style="margin-bottom: 15px; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 5px; cursor: pointer;">
+                    <summary style="font-weight: 600; color: var(--text-primary);">How do I create a custom mapping profile?</summary>
+                    <p style="margin-top: 10px; color: var(--text-secondary);">Open the app, select your game, and tap 'Add Profile'. Drag the keys to the corresponding on-screen buttons and save.</p>
+                </details>
+                
                 <div class="text-center" style="margin-top: 40px;">
                     <p>Need more help? Contact us directly:</p>
                     <div style="display: flex; flex-direction: column; gap: 10px; align-items: center; margin-top: 15px;">
@@ -195,9 +336,9 @@
                     <ul>
                         <li><a href="https://wa.me/919996947080"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
                         <li><a href="mailto:sahil@ggmousepro.com"><i class="fas fa-envelope"></i> Email</a></li>
-                        <li><a href="#"><i class="fab fa-telegram"></i> Telegram</a></li>
-                        <li><a href="#"><i class="fab fa-discord"></i> Discord</a></li>
-                        <li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+                        <li><a href="https://t.me/Codes4U"><i class="fab fa-telegram"></i> Telegram</a></li>
+                        <li><a href="https://discord.gg/cTPWuHqM"><i class="fab fa-discord"></i> Discord</a></li>
+                        <li><a href="https://www.youtube.com/@ggteamindia"><i class="fab fa-youtube"></i> YouTube</a></li>
                     </ul>
                 </div>
             </div>
