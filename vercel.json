@@ -1,15 +1,18 @@
 {
   "redirects": [
-    {
-      "source": "/index.html",
-      "destination": "/home",
-      "permanent": true
-    }
+    { "source": "/index.html", "destination": "/home", "permanent": true },
+    { "source": "/login.html", "destination": "/login", "permanent": true },
+    { "source": "/signup.html", "destination": "/signup", "permanent": true },
+    { "source": "/store.html", "destination": "/store", "permanent": true },
+    { "source": "/cart.html", "destination": "/cart", "permanent": true },
+    { "source": "/legal.html", "destination": "/legal", "permanent": true }
   ],
   "rewrites": [
-    {
-      "source": "/home",
-      "destination": "/index.html"
-    }
+    { "source": "/home", "destination": "/index.html" },
+    { "source": "/login", "destination": "/login.html" },
+    { "source": "/signup", "destination": "/signup.html" },
+    { "source": "/store", "destination": "/store.html" },
+    { "source": "/cart", "destination": "/cart.html" },
+    { "source": "/legal", "destination": "/legal.html" }
   ]
 }
