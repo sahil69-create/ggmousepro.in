@@ -12,7 +12,6 @@
 </head>
 <body>
 
-    <!-- Navigation -->
     <header>
         <div class="container">
             <nav>
@@ -32,30 +31,40 @@
         </div>
     </header>
 
-    <!-- Login Section -->
     <section class="hero" style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding-top: 80px;">
         <canvas id="bg-canvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; opacity: 0.3;"></canvas>
         
-        <div class="auth-container" style="z-index: 2; width: 100%; max-width: 400px;">
-            <h2 class="text-center" style="margin-bottom: 20px;">Welcome Back</h2>
+        <div class="auth-container" style="z-index: 2; width: 100%; max-width: 400px; background: rgba(0,0,0,0.8); padding: 30px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1);">
+            <h2 class="text-center" style="margin-bottom: 20px; color: #fff;">Welcome Back</h2>
+            
             <form id="login-form">
                 <div class="form-group" style="margin-bottom: 15px;">
-                    <label for="email" style="display: block; margin-bottom: 5px; color: var(--text-secondary);">Email</label>
-                    <input type="email" id="email" required style="width: 100%; padding: 10px; background: rgba(0,0,0,0.5); border: 1px solid var(--accent-blue); color: #fff; border-radius: 4px;">
+                    <label for="email" style="display: block; margin-bottom: 5px; color: var(--text-secondary, #aaa);">Email</label>
+                    <input type="email" id="email" required style="width: 100%; padding: 10px; background: rgba(0,0,0,0.5); border: 1px solid var(--accent-blue, #00f0ff); color: #fff; border-radius: 4px;">
                 </div>
                 <div class="form-group" style="margin-bottom: 25px;">
-                    <label for="password" style="display: block; margin-bottom: 5px; color: var(--text-secondary);">Password</label>
-                    <input type="password" id="password" required style="width: 100%; padding: 10px; background: rgba(0,0,0,0.5); border: 1px solid var(--accent-blue); color: #fff; border-radius: 4px;">
+                    <label for="password" style="display: block; margin-bottom: 5px; color: var(--text-secondary, #aaa);">Password</label>
+                    <input type="password" id="password" required style="width: 100%; padding: 10px; background: rgba(0,0,0,0.5); border: 1px solid var(--accent-blue, #00f0ff); color: #fff; border-radius: 4px;">
                 </div>
-                <button type="submit" class="btn btn-primary" style="width: 100%;">Login</button>
+                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 10px; background: var(--accent-blue, #00f0ff); border: none; cursor: pointer; color: #000; font-weight: bold;">Login</button>
             </form>
-            <p class="text-center" style="margin-top: 15px; font-size: 0.9rem;">
-                Don't have an account? <a href="signup.html" style="color: var(--accent-green);">Sign Up</a>
+
+            <div style="display: flex; align-items: center; margin: 20px 0;">
+                <div style="flex: 1; height: 1px; background: #444;"></div>
+                <span style="padding: 0 10px; color: #888; font-size: 0.8rem;">OR</span>
+                <div style="flex: 1; height: 1px; background: #444;"></div>
+            </div>
+
+            <button id="google-login-btn" type="button" style="width: 100%; padding: 10px; background: #fff; border: none; border-radius: 4px; cursor: pointer; color: #333; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 10px; transition: background 0.3s;">
+                <i class="fab fa-google" style="color: #DB4437;"></i> Login with Google
+            </button>
+
+            <p class="text-center" style="margin-top: 15px; font-size: 0.9rem; color: #fff;">
+                Don't have an account? <a href="signup.html" style="color: var(--accent-green, #00ff88);">Sign Up</a>
             </p>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="text-center">
@@ -66,5 +75,54 @@
 
     <script src="script.js"></script>
     <script src="ecommerce.js"></script>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        // Note: Using CDN links so this works directly in the browser
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
+        import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDd32y-HDm5tBlXb-9FJhkEt9RlpEGXW4I",
+            authDomain: "ggmp-in-users.firebaseapp.com",
+            projectId: "ggmp-in-users",
+            storageBucket: "ggmp-in-users.firebasestorage.app",
+            messagingSenderId: "1020421910146",
+            appId: "1:1020421910146:web:bc9e32626120591f9a8e9b",
+            measurementId: "G-P3NBD08WNH"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const auth = getAuth(app);
+        const provider = new GoogleAuthProvider();
+
+        // Handle Google Login
+        const googleBtn = document.getElementById('google-login-btn');
+        
+        googleBtn.addEventListener('click', async () => {
+            try {
+                const result = await signInWithPopup(auth, provider);
+                // The signed-in user info
+                const user = result.user;
+                console.log("Login Success:", user);
+                
+                // Alert for demo purposes - remove in production
+                alert("Welcome " + user.displayName + "!");
+                
+                // Redirect to homepage or dashboard
+                window.location.href = "index.html";
+                
+            } catch (error) {
+                console.error("Login Failed:", error);
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                alert("Login failed: " + errorMessage);
+            }
+        });
+    </script>
 </body>
 </html>
