@@ -201,21 +201,7 @@ function renderCartPage() {
 }
 
 function handleCheckout() {
-    const user = JSON.parse(localStorage.getItem('currentUser'));
-    if (!user) {
-        showToast('Please login to complete your order', 'warning');
-        setTimeout(() => window.location.href = 'login.html', 1500);
-        return;
-    }
-
-    // Process Order
-    showToast('Processing Order...', 'info');
-    setTimeout(() => {
-        localStorage.removeItem('cart');
-        renderCartPage();
-        showToast('Order Placed Successfully!', 'success');
-        // Ideally redirect to an order confirmation page, but for now just clear cart
-    }, 2000);
+    window.location.href = 'checkout.html';
 }
 
 // --- Store Logic ---
@@ -231,6 +217,19 @@ function initStore() {
                 price: parseFloat(btn.dataset.price)
             };
             addToCart(product);
+        });
+    });
+    const buyNowBtns = document.querySelectorAll('.buy-now');
+    buyNowBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const b = e.target;
+            const product = {
+                id: b.dataset.id,
+                name: b.dataset.name,
+                price: parseFloat(b.dataset.price)
+            };
+            addToCart(product);
+            window.location.href = 'checkout.html';
         });
     });
 }
