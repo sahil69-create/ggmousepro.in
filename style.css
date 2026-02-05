@@ -266,9 +266,13 @@ nav {
     border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.05);
     transition: 0.3s;
-    text-align: center; /* Center alignment */
+    text-align: center;
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
 }
 
 .feature-card:hover {
@@ -296,6 +300,7 @@ nav {
 .feature-icon {
     font-size: 2.5rem; /* Larger icons */
     color: var(--accent-green);
+    margin-top: 12px;
     margin-bottom: 20px;
     background: rgba(0, 255, 136, 0.1);
     width: 80px;
