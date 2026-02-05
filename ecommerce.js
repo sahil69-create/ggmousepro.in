@@ -14,16 +14,17 @@ function initAuth() {
     const authItems = document.querySelectorAll('.auth-item');
 
     if (user) {
-        // User is logged in
         authItems.forEach(item => {
             item.innerHTML = `
-                <a href="#" class="btn-sm" id="logout-btn" style="border-color: var(--accent-red); color: var(--accent-red);">
-                    <i class="fas fa-sign-out-alt"></i> Logout
-                </a>
+                <div class="profile-chip">
+                    <i class="fas fa-user-circle" style="color:#fff;"></i>
+                    <span class="profile-name">${user.name || user.email || 'User'}</span>
+                    <a href="account.html" class="profile-link">Account</a>
+                    <button id="logout-btn" class="profile-logout">Logout</button>
+                </div>
             `;
         });
 
-        // Add logout listener
         const logoutBtns = document.querySelectorAll('#logout-btn');
         logoutBtns.forEach(btn => {
             btn.addEventListener('click', (e) => {
