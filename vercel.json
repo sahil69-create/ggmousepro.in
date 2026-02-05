@@ -5,7 +5,9 @@
     { "source": "/signup.html", "destination": "/signup", "permanent": true },
     { "source": "/store.html", "destination": "/store", "permanent": true },
     { "source": "/cart.html", "destination": "/cart", "permanent": true },
-    { "source": "/legal.html", "destination": "/legal", "permanent": true }
+    { "source": "/legal.html", "destination": "/legal", "permanent": true },
+    { "source": "/checkout.html", "destination": "/checkout", "permanent": true },
+    { "source": "/order-confirmation.html", "destination": "/order-confirmation", "permanent": true }
   ],
   "rewrites": [
     { "source": "/home", "destination": "/index.html" },
@@ -13,6 +15,8 @@
     { "source": "/signup", "destination": "/signup.html" },
     { "source": "/store", "destination": "/store.html" },
     { "source": "/cart", "destination": "/cart.html" },
-    { "source": "/legal", "destination": "/legal.html" }
+    { "source": "/legal", "destination": "/legal.html" },
+    { "source": "/checkout", "destination": "/checkout.html" },
+    { "source": "/order-confirmation", "destination": "/order-confirmation.html" }
   ]
 }
