@@ -35,7 +35,7 @@
         <canvas id="bg-canvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; opacity: 0.3;"></canvas>
         
         <div class="auth-container" style="z-index: 2; width: 100%; max-width: 400px; background: rgba(0,0,0,0.8); padding: 30px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1);">
-            <h2 class="text-center" style="margin-bottom: 20px; color: #fff;">Welcome Back</h2>
+            <h2 class="text-center" style="margin-bottom: 20px; color: #fff;">Welcome back</h2>
             
             <form id="login-form">
                 <div class="form-group" style="margin-bottom: 15px;">
@@ -51,16 +51,16 @@
 
             <div style="display: flex; align-items: center; margin: 20px 0;">
                 <div style="flex: 1; height: 1px; background: #444;"></div>
-                <span style="padding: 0 10px; color: #888; font-size: 0.8rem;">OR</span>
+                <span style="padding: 0 10px; color: #888; font-size: 0.8rem;">or</span>
                 <div style="flex: 1; height: 1px; background: #444;"></div>
             </div>
 
             <button id="google-login-btn" type="button" style="width: 100%; padding: 10px; background: #fff; border: none; border-radius: 4px; cursor: pointer; color: #333; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 10px; transition: background 0.3s;">
-                <i class="fab fa-google" style="color: #DB4437;"></i> Login with Google
+                <i class="fab fa-google" style="color: #DB4437;"></i> Continue with Google
             </button>
 
             <p class="text-center" style="margin-top: 15px; font-size: 0.9rem; color: #fff;">
-                Don't have an account? <a href="signup.html" style="color: var(--accent-green, #00ff88);">Sign Up</a>
+                New here? <a href="signup.html" style="color: var(--accent-green, #00ff88);">Create an account</a>
             </p>
         </div>
     </section>
@@ -110,8 +110,11 @@
                 const user = result.user;
                 console.log("Login Success:", user);
                 
-                // Alert for demo purposes - remove in production
-                alert("Welcome " + user.displayName + "!");
+                // Sync login state with site UI
+                localStorage.setItem('currentUser', JSON.stringify({
+                    name: user.displayName || 'User',
+                    email: user.email || ''
+                }));
                 
                 // Redirect to homepage or dashboard
                 window.location.href = "index.html";
