@@ -37,18 +37,18 @@
         <canvas id="bg-canvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; opacity: 0.2;"></canvas>
         
         <div class="container" style="position: relative; z-index: 2;">
-            <h1 class="text-gradient" style="margin-bottom: 30px;">Your Cart</h1>
+            <h1 style="margin-bottom: 30px;"><span class="blue-text">Your</span> <span class="orange-text">Cart</span></h1>
             
             <div id="cart-content">
                 <!-- Cart Items Table -->
                 <table class="cart-table">
                     <thead>
                         <tr>
-                            <th style="text-align: left; padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.1);">Product</th>
-                            <th style="padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.1);">Price</th>
-                            <th style="padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.1);">Quantity</th>
-                            <th style="padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.1);">Total</th>
-                            <th style="padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.1);">Action</th>
+                            <th style="text-align: left; padding: 15px; border-bottom: 1px solid rgba(0,0,0,0.1);">Product</th>
+                            <th style="padding: 15px; border-bottom: 1px solid rgba(0,0,0,0.1);">Price</th>
+                            <th style="padding: 15px; border-bottom: 1px solid rgba(0,0,0,0.1);">Quantity</th>
+                            <th style="padding: 15px; border-bottom: 1px solid rgba(0,0,0,0.1);">Total</th>
+                            <th style="padding: 15px; border-bottom: 1px solid rgba(0,0,0,0.1);">Action</th>
                         </tr>
                     </thead>
                     <tbody id="cart-items">
@@ -61,7 +61,7 @@
                         <span>Subtotal:</span>
                         <span id="cart-subtotal">$0.00</span>
                     </div>
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 20px; font-weight: bold; font-size: 1.2rem; color: var(--accent-green);">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 20px; font-weight: bold; font-size: 1.2rem; color: var(--accent-orange);">
                         <span>Total:</span>
                         <span id="cart-total">$0.00</span>
                     </div>
