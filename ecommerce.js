@@ -17,7 +17,7 @@ function initAuth() {
         authItems.forEach(item => {
             item.innerHTML = `
                 <div class="profile-chip">
-                    <i class="fas fa-user-circle" style="color:#fff;"></i>
+                    <i class="fas fa-user-circle" style="color:var(--text-primary);"></i>
                     <span class="profile-name">${user.name || user.email || 'User'}</span>
                     <a href="account.html" class="profile-link">Account</a>
                     <button id="logout-btn" class="profile-logout">Logout</button>
@@ -257,7 +257,7 @@ function showToast(message, type = 'info') {
 
     const toast = document.createElement('div');
     const colors = {
-        success: 'var(--accent-green)',
+        success: 'var(--accent-orange)',
         error: 'var(--accent-red)',
         info: 'var(--accent-blue)',
         warning: '#f39c12'
