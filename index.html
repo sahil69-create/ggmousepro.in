@@ -38,9 +38,9 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <canvas id="bg-canvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; opacity: 0.5;"></canvas>
+        <canvas id="bg-canvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; opacity: 0.15;"></canvas>
         <div class="container hero-content">
-            <h1 class="text-gradient">Perfect-Aim. Full-Control. Rule-The-Game.</h1>
+            <h1><span class="blue-text">Perfect-Aim.</span> <span class="orange-text">Full-Control.</span> <span class="blue-text">Rule-The-Game.</span></h1>
             <p>GG Mouse Pro is a premium mobile gaming utility and accessories brand designed for competitive players who refuse to compromise on precision, speed, and control.</p>
             <div class="btn-group">
                 <a href="#download" class="btn btn-primary"><i class="fab fa-android"></i> Download App</a>
@@ -94,7 +94,7 @@
         <div class="container">
             <div class="section-header">
                 <h2>App Interface</h2>
-                <p>Simple, Powerful, Dark Mode Optimized.</p>
+                <p>Simple, Powerful, Optimized.</p>
             </div>
             <div class="screenshot-grid">
                 <div class="screenshot-item">
@@ -128,34 +128,58 @@
             </div>
             <div class="features-grid">
                 <div class="feature-card">
-                    <i class="fas fa-mouse feature-icon"></i>
-                    <h3>Mouse & Keyboard Mapping</h3>
-                    <p>Plug in, map, play. Feels like PC, stays on mobile—no weird hacks.</p>
+                    <div class="feature-icon">
+                        <i class="fas fa-mouse"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Mouse & Keyboard Mapping</h3>
+                        <p>Plug in, map, play. Feels like PC, stays on mobile—no weird hacks.</p>
+                    </div>
                 </div>
                 <div class="feature-card">
-                    <i class="fas fa-crosshairs feature-icon"></i>
-                    <h3>Custom Sensitivity</h3>
-                    <p>Tune your aim the way you like. Create profiles per game and swap fast.</p>
+                    <div class="feature-icon">
+                        <i class="fas fa-crosshairs"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Custom Sensitivity</h3>
+                        <p>Tune your aim the way you like. Create profiles per game and swap fast.</p>
+                    </div>
                 </div>
                 <div class="feature-card">
-                    <i class="fas fa-bolt feature-icon"></i>
-                    <h3>Low Latency</h3>
-                    <p>Snappy inputs and smooth tracking. Built to stay responsive under pressure.</p>
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Low Latency</h3>
+                        <p>Snappy inputs and smooth tracking. Built to stay responsive under pressure.</p>
+                    </div>
                 </div>
                 <div class="feature-card">
-                    <i class="fas fa-trophy feature-icon"></i>
-                    <h3>Competitive Ready</h3>
-                    <p>Stable, predictable, ranked-friendly. We keep the edge, you keep the wins.</p>
+                    <div class="feature-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Competitive Ready</h3>
+                        <p>Stable, predictable, ranked-friendly. We keep the edge, you keep the wins.</p>
+                    </div>
                 </div>
                 <div class="feature-card">
-                    <i class="fas fa-feather feature-icon"></i>
-                    <h3>Lightweight & Secure</h3>
-                    <p>Light on resources, heavy on performance. No bloat, no drama.</p>
+                    <div class="feature-icon">
+                        <i class="fas fa-feather"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Lightweight & Secure</h3>
+                        <p>Light on resources, heavy on performance. No bloat, no drama.</p>
+                    </div>
                 </div>
                 <div class="feature-card">
-                    <i class="fas fa-users feature-icon"></i>
-                    <h3>Community Driven</h3>
-                    <p>We ship based on your feedback. Join in, drop ideas, help shape updates.</p>
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Community Driven</h3>
+                        <p>We ship based on your feedback. Join in, drop ideas, help shape updates.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -165,13 +189,13 @@
     <section id="download" class="download-section">
         <div class="container">
             <div class="download-box">
-                <i class="fab fa-android" style="font-size: 3rem; color: var(--accent-green); margin-bottom: 20px;"></i>
+                <i class="fab fa-android" style="font-size: 3rem; color: var(--accent-orange); margin-bottom: 20px;"></i>
                 <h2>Download GG Mouse Pro</h2>
                 <p style="margin-bottom: 10px;">
                     Get the official Android version. Experience the power of precision.
                 </p>
                 
-                <div style="margin-bottom: 25px; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; display: inline-block; text-align: left;">
+                <div style="margin-bottom: 25px; background: rgba(0,0,0,0.05); padding: 15px; border-radius: 8px; display: inline-block; text-align: left;">
                     <div style="margin-bottom: 5px; color: var(--text-primary); font-weight: bold;">Version 2.3.21 <span style="font-weight: normal; color: var(--text-secondary); font-size: 0.8rem;">(Latest)</span></div>
                     <div style="font-family: monospace; color: var(--text-secondary); font-size: 0.8rem; word-break: break-all;">SHA256: a1b2c3d4e5f6...9x8y7z</div>
                 </div>
@@ -188,9 +212,9 @@
 
                 <button id="download-btn" class="btn btn-primary" onclick="startDownload()">
                     <span id="btn-text">Download APK</span>
-                    <div id="btn-loader" class="loader" style="display: none; border-color: rgba(0,0,0,0.3); border-top-color: #000; width: 20px; height: 20px; margin: 0 auto;"></div>
+                    <div id="btn-loader" class="loader" style="display: none; border-color: rgba(0,0,0,0.1); border-top-color: var(--accent-orange); width: 20px; height: 20px; margin: 0 auto;"></div>
                 </button>
-                <div id="download-msg" style="margin-top: 15px; display: none; color: var(--accent-green);">Download starting...</div>
+                <div id="download-msg" style="margin-top: 15px; display: none; color: var(--accent-orange);">Download starting...</div>
             </div>
         </div>
     </section>
@@ -204,12 +228,12 @@
             </div>
             <div class="testimonials-grid">
                 <div class="testimonial-card">
-                    <div style="color: var(--accent-green); margin-bottom: 10px;">
+                    <div style="color: var(--accent-orange); margin-bottom: 10px;">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
                     <p style="font-style: italic; margin-bottom: 20px;">"Absolutely game-changing. My aim in Free Fire has improved drastically since using the mapping features."</p>
                     <div style="display: flex; align-items: center; gap: 10px;">
-                        <div style="width: 40px; height: 40px; background: #333; border-radius: 50%; display: flex; align-items: center; justify-content: center;"><i class="fas fa-user"></i></div>
+                        <div style="width: 40px; height: 40px; background: #eee; border-radius: 50%; display: flex; align-items: center; justify-content: center;"><i class="fas fa-user"></i></div>
                         <div>
                             <h4 style="font-size: 0.9rem;">HARAMI LIVE.</h4>
                             <span style="font-size: 0.8rem; color: var(--text-secondary);">Content Creator</span>
@@ -217,12 +241,12 @@
                     </div>
                 </div>
                 <div class="testimonial-card">
-                    <div style="color: var(--accent-green); margin-bottom: 10px;">
+                    <div style="color: var(--accent-orange); margin-bottom: 10px;">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
                     </div>
                     <p style="font-style: italic; margin-bottom: 20px;">"Zero lag, easy setup. The custom sensitivity profiles are a lifesaver for different operators."</p>
                     <div style="display: flex; align-items: center; gap: 10px;">
-                        <div style="width: 40px; height: 40px; background: #333; border-radius: 50%; display: flex; align-items: center; justify-content: center;"><i class="fas fa-user"></i></div>
+                        <div style="width: 40px; height: 40px; background: #eee; border-radius: 50%; display: flex; align-items: center; justify-content: center;"><i class="fas fa-user"></i></div>
                         <div>
                             <h4 style="font-size: 0.9rem;">CHOCO YT</h4>
                             <span style="font-size: 0.8rem; color: var(--text-secondary);">Content Creator</span>
@@ -230,12 +254,12 @@
                     </div>
                 </div>
                 <div class="testimonial-card">
-                    <div style="color: var(--accent-green); margin-bottom: 10px;">
+                    <div style="color: var(--accent-orange); margin-bottom: 10px;">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
                     <p style="font-style: italic; margin-bottom: 20px;">"Best mapping tool for Android 13. Support team helped me fix my OTG issue in minutes."</p>
                     <div style="display: flex; align-items: center; gap: 10px;">
-                        <div style="width: 40px; height: 40px; background: #333; border-radius: 50%; display: flex; align-items: center; justify-content: center;"><i class="fas fa-user"></i></div>
+                        <div style="width: 40px; height: 40px; background: #eee; border-radius: 50%; display: flex; align-items: center; justify-content: center;"><i class="fas fa-user"></i></div>
                         <div>
                             <h4 style="font-size: 0.9rem;">Amit J.</h4>
                             <span style="font-size: 0.8rem; color: var(--text-secondary);">Esports Competitor</span>
@@ -254,9 +278,9 @@
                 <p>Hop in, say hi, share your settings. We’re active daily and always helping out.</p>
             </div>
             <div class="btn-group">
-                <a href="https://t.me/Codes4U" class="btn btn-secondary"><i class="fab fa-telegram"></i> Telegram</a>
-                <a href="https://discord.gg/cTPWuHqM" class="btn btn-secondary"><i class="fab fa-discord"></i> Discord</a>
-                <a href="https://www.youtube.com/@ggteamindia" class="btn btn-secondary"><i class="fab fa-youtube"></i> YouTube</a>
+                <a href="https://t.me/Codes4U" class="btn btn-secondary" style="background: #0088cc; color: #fff; box-shadow: 0 0 20px rgba(0, 136, 204, 0.2);"><i class="fab fa-telegram" style="color: #fff;"></i> Telegram</a>
+                <a href="https://discord.gg/cTPWuHqM" class="btn btn-secondary" style="background: #5865F2; color: #fff; box-shadow: 0 0 20px rgba(88, 101, 242, 0.2);"><i class="fab fa-discord" style="color: #fff;"></i> Discord</a>
+                <a href="https://www.youtube.com/@ggteamindia" class="btn btn-secondary" style="background: #FF0000; color: #fff; box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);"><i class="fab fa-youtube" style="color: #fff;"></i> YouTube</a>
             </div>
         </div>
     </section>
@@ -297,8 +321,8 @@
                 <div class="text-center" style="margin-top: 40px;">
                     <p>Need more help? Contact us directly:</p>
                     <div style="display: flex; flex-direction: column; gap: 10px; align-items: center; margin-top: 15px;">
-                        <a href="mailto:sahil@ggmousepro.com" style="color: var(--accent-green); text-decoration: none; font-size: 1.1rem;"><i class="fas fa-envelope"></i> sahil@ggmousepro.com</a>
-                        <a href="https://wa.me/919996947080" style="color: var(--accent-green); text-decoration: none; font-size: 1.1rem;"><i class="fab fa-whatsapp"></i> +91 99969 47080</a>
+                        <a href="mailto:sahil@ggmousepro.com" style="text-decoration: none; font-size: 1.1rem; color: var(--text-primary);"><i class="fas fa-envelope"></i> sahil@ggmousepro.com</a>
+                        <a href="https://wa.me/919996947080" style="text-decoration: none; font-size: 1.1rem; color: var(--text-primary);"><i class="fab fa-whatsapp"></i> +91 99969 47080</a>
                         <p style="color: var(--text-secondary); margin-top: 10px;"><i class="fas fa-map-marker-alt"></i> Juglan, Hisar, Haryana</p>
                     </div>
                 </div>
