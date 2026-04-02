@@ -31,12 +31,12 @@
     <section class="hero" style="min-height: 85vh; padding-top: 120px;">
         <canvas id="bg-canvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; opacity: 0.25;"></canvas>
         <div class="container" style="position: relative; z-index: 2;">
-            <h1 class="text-gradient" style="margin-bottom: 30px;">My Account</h1>
+            <h1 style="margin-bottom: 30px;"><span class="blue-text">My</span> <span class="orange-text">Account</span></h1>
             <div style="display: grid; grid-template-columns: 1.2fr 1.8fr; gap: 30px;">
                 <div style="background: var(--bg-card); padding: 20px; border-radius: 8px;">
                     <h3 style="margin-bottom: 15px;">Profile</h3>
                     <div style="display:flex; align-items:center; gap:12px;">
-                        <i class="fas fa-user-circle" style="font-size: 2rem; color: #fff;"></i>
+                        <i class="fas fa-user-circle" style="font-size: 2rem; color: var(--text-primary);"></i>
                         <div>
                             <div id="acc-name" style="font-weight: 600;">Guest</div>
                             <div id="acc-email" style="color: var(--text-secondary); font-size: 0.9rem;">guest@example.com</div>
@@ -124,7 +124,7 @@
                             <div style="color: var(--text-secondary); font-size: 0.85rem;">${(data.items || []).map(i => i.name + ' × ' + i.quantity).join(', ')}</div>
                         </div>
                         <div style="font-weight:600;">$${(data.total || 0).toFixed(2)}</div>
-                        <div style="color: var(--accent-green);">${data.status || 'Pending'}</div>
+                        <div style="color: var(--accent-orange);">${data.status || 'Pending'}</div>
                     `;
                     ordersEl.appendChild(row);
                 });
