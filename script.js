@@ -54,7 +54,8 @@ if (canvas) {
             this.size = Math.random() * 2 + 0.5;
             this.speedX = Math.random() * 0.5 - 0.25;
             this.speedY = Math.random() * 0.5 - 0.25;
-            this.color = `rgba(0, 255, 136, ${Math.random() * 0.5})`;
+            const colors = ['rgba(75, 107, 251, 0.4)', 'rgba(248, 116, 49, 0.4)'];
+            this.color = colors[Math.floor(Math.random() * colors.length)];
         }
 
         update() {
@@ -101,7 +102,7 @@ if (canvas) {
 
             if (distance < 100) {
                 ctx.beginPath();
-                ctx.strokeStyle = `rgba(0, 255, 136, ${0.1 - distance/1000})`;
+                ctx.strokeStyle = particlesArray[index].color.replace('0.4', (0.1 - distance/1000).toString());
                 ctx.lineWidth = 0.5;
                 ctx.moveTo(particlesArray[index].x, particlesArray[index].y);
                 ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
@@ -176,7 +177,7 @@ function startDownload() {
             btnLoader.style.display = 'none';
             btnText.style.display = 'inline';
             btnText.innerText = "Downloaded!";
-            btn.style.backgroundColor = "#333";
+            btn.style.backgroundColor = "var(--text-secondary)";
             msg.style.display = 'block';
             msg.innerText = "Download started automatically. Check your notifications.";
             
