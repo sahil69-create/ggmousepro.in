@@ -36,9 +36,9 @@
 
     <!-- Store Hero -->
     <section class="hero" style="height: 50vh; min-height: 400px;">
-        <canvas id="bg-canvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; opacity: 0.3;"></canvas>
+        <canvas id="bg-canvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; opacity: 0.15;"></canvas>
         <div class="container hero-content">
-            <h1 class="text-gradient">Official Store</h1>
+            <h1><span class="blue-text">Official</span> <span class="orange-text">Store</span></h1>
             <p>Pick gear we actually use. No fluff—just solid hardware that lasts.</p>
         </div>
     </section>
@@ -54,12 +54,12 @@
                 <!-- Product 1 -->
                 <div class="product-card">
                     <div class="product-img">
-                        <i class="fas fa-mouse" style="font-size: 4rem; z-index: 1; color: #fff;"></i>
+                        <i class="fas fa-mouse" style="font-size: 4rem; z-index: 1; color: var(--text-primary);"></i>
                     </div>
                     <div class="product-info">
                         <h4>GG Pro Wireless Mouse</h4>
                         <div class="product-price">$49.99</div>
-                        <p style="color: #777; font-size: 0.9rem; margin-bottom: 15px;">Ultra-light, grippy shell, 20k DPI sensor. Clean flicks, steady aim.</p>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 15px;">Ultra-light, grippy shell, 20k DPI sensor. Clean flicks, steady aim.</p>
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
                             <button class="btn btn-secondary add-to-cart" data-id="1" data-name="GG Pro Wireless Mouse" data-price="49.99">Add to Cart</button>
                             <button class="btn btn-primary buy-now" data-id="1" data-name="GG Pro Wireless Mouse" data-price="49.99">Buy Now</button>
@@ -69,12 +69,12 @@
                 <!-- Product 2 -->
                 <div class="product-card">
                     <div class="product-img">
-                        <i class="fas fa-keyboard" style="font-size: 4rem; z-index: 1; color: #fff;"></i>
+                        <i class="fas fa-keyboard" style="font-size: 4rem; z-index: 1; color: var(--text-primary);"></i>
                     </div>
                     <div class="product-info">
                         <h4>GG Mech Keyboard</h4>
                         <div class="product-price">$89.99</div>
-                        <p style="color: #777; font-size: 0.9rem; margin-bottom: 15px;">Compact 60%. Smooth linear reds. Quiet, fast, reliable.</p>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 15px;">Compact 60%. Smooth linear reds. Quiet, fast, reliable.</p>
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
                             <button class="btn btn-secondary add-to-cart" data-id="2" data-name="GG Mech Keyboard" data-price="89.99">Add to Cart</button>
                             <button class="btn btn-primary buy-now" data-id="2" data-name="GG Mech Keyboard" data-price="89.99">Buy Now</button>
@@ -84,12 +84,12 @@
                 <!-- Product 3 -->
                 <div class="product-card">
                     <div class="product-img">
-                        <i class="fas fa-square" style="font-size: 4rem; z-index: 1; color: #fff;"></i>
+                        <i class="fas fa-square" style="font-size: 4rem; z-index: 1; color: var(--text-primary);"></i>
                     </div>
                     <div class="product-info">
                         <h4>Speed Mouse Pad</h4>
                         <div class="product-price">$19.99</div>
-                        <p style="color: #777; font-size: 0.9rem; margin-bottom: 15px;">XL surface with stitched edges. Fast glide, firm base.</p>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 15px;">XL surface with stitched edges. Fast glide, firm base.</p>
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
                             <button class="btn btn-secondary add-to-cart" data-id="3" data-name="Speed Mouse Pad" data-price="19.99">Add to Cart</button>
                             <button class="btn btn-primary buy-now" data-id="3" data-name="Speed Mouse Pad" data-price="19.99">Buy Now</button>
@@ -99,12 +99,12 @@
                 <!-- Product 4 -->
                 <div class="product-card">
                     <div class="product-img">
-                        <i class="fas fa-gamepad" style="font-size: 4rem; z-index: 1; color: #fff;"></i>
+                        <i class="fas fa-gamepad" style="font-size: 4rem; z-index: 1; color: var(--text-primary);"></i>
                     </div>
                     <div class="product-info">
                         <h4>Pro Gaming Triggers</h4>
                         <div class="product-price">$14.99</div>
-                        <p style="color: #777; font-size: 0.9rem; margin-bottom: 15px;">Responsive capacitive triggers. Consistent taps, no misfires.</p>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 15px;">Responsive capacitive triggers. Consistent taps, no misfires.</p>
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
                             <button class="btn btn-secondary add-to-cart" data-id="4" data-name="Pro Gaming Triggers" data-price="14.99">Add to Cart</button>
                             <button class="btn btn-primary buy-now" data-id="4" data-name="Pro Gaming Triggers" data-price="14.99">Buy Now</button>
@@ -116,7 +116,7 @@
     </section>
 
     <!-- Merchandise Section -->
-    <section id="merch" style="background: #0a0a0a;">
+    <section id="merch" style="background: var(--bg-card);">
         <div class="container">
             <div class="section-header">
                 <h2>Official Merchandise</h2>
@@ -126,49 +126,49 @@
                 <!-- Merch 1 -->
                 <div class="product-card">
                     <div class="product-img">
-                        <i class="fas fa-tshirt" style="font-size: 4rem; z-index: 1; color: #fff;"></i>
+                        <i class="fas fa-tshirt" style="font-size: 4rem; z-index: 1; color: var(--text-primary);"></i>
                     </div>
                     <div class="product-info">
                         <h4>GG Pro Esports Jersey</h4>
                         <div class="product-price">$29.99</div>
-                        <p style="color: #777; font-size: 0.9rem; margin-bottom: 15px;">Breathable mesh, team cut, stays cool under lights.</p>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 15px;">Breathable mesh, team cut, stays cool under lights.</p>
                         <button class="btn btn-outline" style="width: 100%;">Coming Soon</button>
                     </div>
                 </div>
                 <!-- Merch 2 -->
                 <div class="product-card">
                     <div class="product-img">
-                        <i class="fas fa-user-hoodie" style="font-size: 4rem; z-index: 1; color: #fff;"></i> <!-- FontAwesome doesn't have hoodie, using fallback or closest -->
-                        <i class="fas fa-tshirt" style="font-size: 4rem; z-index: 1; color: #fff;"></i>
+                        <i class="fas fa-user-hoodie" style="font-size: 4rem; z-index: 1; color: var(--text-primary);"></i> <!-- FontAwesome doesn't have hoodie, using fallback or closest -->
+                        <i class="fas fa-tshirt" style="font-size: 4rem; z-index: 1; color: var(--text-primary);"></i>
                     </div>
                     <div class="product-info">
                         <h4>Stealth Hoodie</h4>
                         <div class="product-price">$45.00</div>
-                        <p style="color: #777; font-size: 0.9rem; margin-bottom: 15px;">Soft cotton blend, minimal branding, warm without bulk.</p>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 15px;">Soft cotton blend, minimal branding, warm without bulk.</p>
                         <button class="btn btn-outline" style="width: 100%;">Coming Soon</button>
                     </div>
                 </div>
                 <!-- Merch 3 -->
                 <div class="product-card">
                     <div class="product-img">
-                        <i class="fas fa-hat-cowboy-side" style="font-size: 4rem; z-index: 1; color: #fff;"></i> <!-- Using closest for cap if specific not avail, usually just generic icon or placeholder -->
+                        <i class="fas fa-hat-cowboy-side" style="font-size: 4rem; z-index: 1; color: var(--text-primary);"></i> <!-- Using closest for cap if specific not avail, usually just generic icon or placeholder -->
                     </div>
                     <div class="product-info">
                         <h4>GG Snapback Cap</h4>
                         <div class="product-price">$19.99</div>
-                        <p style="color: #777; font-size: 0.9rem; margin-bottom: 15px;">Classic snapback, crisp embroidery, everyday wear.</p>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 15px;">Classic snapback, crisp embroidery, everyday wear.</p>
                         <button class="btn btn-primary" style="width: 100%;">Buy Now</button>
                     </div>
                 </div>
                 <!-- Merch 4 -->
                 <div class="product-card">
                     <div class="product-img">
-                        <i class="fas fa-sticky-note" style="font-size: 4rem; z-index: 1; color: #fff;"></i>
+                        <i class="fas fa-sticky-note" style="font-size: 4rem; z-index: 1; color: var(--text-primary);"></i>
                     </div>
                     <div class="product-info">
                         <h4>Sticker Pack</h4>
                         <div class="product-price">$4.99</div>
-                        <p style="color: #777; font-size: 0.9rem; margin-bottom: 15px;">Durable vinyl, easy peel, sticks clean on cases & pads.</p>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 15px;">Durable vinyl, easy peel, sticks clean on cases & pads.</p>
                         <button class="btn btn-primary" style="width: 100%;">Buy Now</button>
                     </div>
                 </div>
@@ -213,7 +213,7 @@
                 </div>
             </div>
             <div class="copyright">
-                &copy; 2024 GG Mouse Pro. All rights reserved.
+                &copy; 2026 GG Mouse Pro. All rights reserved.
             </div>
         </div>
     </footer>
