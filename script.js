@@ -86,29 +86,33 @@ if (canvas) {
 
     function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        for (let i = 0; i < particlesArray.length; i++) {
-            particlesArray[i].update();
-            particlesArray[i].draw();
-            connectParticles(i);
-        }
-        requestAnimationFrame(animate);
-    }
+        
+        // Use a more efficient way to draw and connect particles
+        const particlesCount = particlesArray.length;
+        for (let i = 0; i < particlesCount; i++) {
+            const p1 = particlesArray[i];
+            p1.update();
+            p1.draw();
+            
+            // Only connect if distance is small (limit the number of checks)
+            for (let j = i + 1; j < particlesCount; j++) {
+                const p2 = particlesArray[j];
+                const dx = p1.x - p2.x;
+                const dy = p1.y - p2.y;
+                const distanceSq = dx * dx + dy * dy; // Use squared distance to avoid sqrt
 
-    function connectParticles(index) {
-        for (let j = index; j < particlesArray.length; j++) {
-            const dx = particlesArray[index].x - particlesArray[j].x;
-            const dy = particlesArray[index].y - particlesArray[j].y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-
-            if (distance < 100) {
-                ctx.beginPath();
-                ctx.strokeStyle = particlesArray[index].color.replace('0.4', (0.1 - distance/1000).toString());
-                ctx.lineWidth = 0.5;
-                ctx.moveTo(particlesArray[index].x, particlesArray[index].y);
-                ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
-                ctx.stroke();
+                if (distanceSq < 10000) { // 100 * 100
+                    const distance = Math.sqrt(distanceSq);
+                    ctx.beginPath();
+                    ctx.strokeStyle = p1.color.replace('0.4', (0.1 - distance/1000).toString());
+                    ctx.lineWidth = 0.5;
+                    ctx.moveTo(p1.x, p1.y);
+                    ctx.lineTo(p2.x, p2.y);
+                    ctx.stroke();
+                }
             }
         }
+        requestAnimationFrame(animate);
     }
 
     init();
@@ -138,57 +142,99 @@ document.querySelectorAll('.feature-card, .product-card, .section-header, .step-
     observer.observe(el);
 });
 
-// Navigation Scroll Highlighting
+// Navigation Scroll Highlighting with Debounce
+let scrollTimeout;
 window.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.nav-links a');
+    if (scrollTimeout) {
+        window.cancelAnimationFrame(scrollTimeout);
+    }
     
-    let current = '';
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
-            current = section.getAttribute('id');
-        }
-    });
-    
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').includes(current)) {
-            link.classList.add('active');
+    scrollTimeout = window.requestAnimationFrame(() => {
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-links a');
+        
+        let current = '';
+        const pageYOffset = window.pageYOffset;
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        // Only update highlights if we actually found a section to highlight
+        if (current) {
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                // Only handle in-page links starting with #
+                if (href && href.startsWith('#')) {
+                    link.classList.remove('active');
+                    if (href === '#' + current || (current === 'home' && href === '#home')) {
+                        link.classList.add('active');
+                    }
+                }
+            });
         }
     });
 });
 
-// Download Loader Function
-function startDownload() {
-    const btn = document.getElementById('download-btn');
-    const btnText = document.getElementById('btn-text');
-    const btnLoader = document.getElementById('btn-loader');
-    const msg = document.getElementById('download-msg');
-    
-    if (btn && btnText && btnLoader && msg) {
-        btnText.style.display = 'none';
-        btnLoader.style.display = 'block';
-        btn.disabled = true;
-        
-        setTimeout(() => {
-            btnLoader.style.display = 'none';
-            btnText.style.display = 'inline';
-            btnText.innerText = "Downloaded!";
-            btn.style.backgroundColor = "var(--text-secondary)";
-            msg.style.display = 'block';
-            msg.innerText = "Download started automatically. Check your notifications.";
-            
-            // Create a dummy download link
-            const link = document.createElement('a');
-            link.href = 'https://play.google.com/store/apps/details?id=com.zjx.ztezscreenshot&pcampaignid=web_share'; // In a real app, this would be the APK URL
-            link.download = 'GGMousePro_v2.4.1.apk';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            
-        }, 2000);
+// Fix unintended hover effects during scroll
+let isScrolling;
+let scrollStartPos = 0;
+
+window.addEventListener('scroll', () => {
+    // Add class on scroll start
+    if (!document.body.classList.contains('disable-hover')) {
+        document.body.classList.add('disable-hover');
     }
+    
+    window.clearTimeout(isScrolling);
+    
+    isScrolling = setTimeout(() => {
+        document.body.classList.remove('disable-hover');
+    }, 200); // Increased timeout slightly for better robustness
+}, { passive: true });
+
+// Download Loader Function
+function startDownload(btn) {
+    const btnText = btn.querySelector('#btn-text');
+    const btnLoader = btn.querySelector('#btn-loader');
+    const downloadMsg = document.getElementById('download-msg');
+    const downloadUrl = btn.getAttribute('data-url');
+    
+    // Check if already downloading
+    if (btn.classList.contains('downloading')) return;
+    
+    btn.classList.add('downloading');
+    btnText.style.display = 'none';
+    btnLoader.style.display = 'block';
+    downloadMsg.style.display = 'block';
+    downloadMsg.textContent = 'Preparing your secure download...';
+    
+    // Simulate server-side check/delay (1.5 seconds)
+    setTimeout(() => {
+        // Obscured download trigger
+        const tempLink = document.createElement('a');
+        tempLink.href = downloadUrl;
+        tempLink.target = '_blank';
+        tempLink.rel = 'noopener noreferrer';
+        document.body.appendChild(tempLink);
+        tempLink.click();
+        document.body.removeChild(tempLink);
+        
+        // Reset button state
+        setTimeout(() => {
+            btn.classList.remove('downloading');
+            btnText.style.display = 'block';
+            btnLoader.style.display = 'none';
+            downloadMsg.textContent = 'Download started!';
+            
+            // Hide success message after 3 seconds
+            setTimeout(() => {
+                downloadMsg.style.display = 'none';
+            }, 3000);
+        }, 1000);
+    }, 1500);
 }
