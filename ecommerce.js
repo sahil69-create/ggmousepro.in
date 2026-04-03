@@ -265,7 +265,7 @@ function showToast(message, type = 'info') {
 
     toast.style.cssText = `
         background: var(--bg-card);
-        color: white;
+        color: #0066cc; /* Professional blue shade */
         padding: 12px 20px;
         border-radius: 4px;
         border-left: 4px solid ${colors[type] || colors.info};
